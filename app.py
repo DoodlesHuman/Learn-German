@@ -3,9 +3,23 @@ from transformers import pipeline
 import language_tool_python
 import spacy
 
+
+from transformers import MarianMTModel, MarianTokenizer
+
+translator_en_to_de = pipeline(
+    "translation",
+    model="Helsinki-NLP/opus-mt-en-de",
+    tokenizer="Helsinki-NLP/opus-mt-en-de"
+)
+
+translator_de_to_en = pipeline(
+    "translation",
+    model="Helsinki-NLP/opus-mt-de-en",
+    tokenizer="Helsinki-NLP/opus-mt-de-en"
+)
+
 # --- Load models ---
-translator_en_to_de = pipeline("translation", model="Helsinki-NLP/opus-mt-en-de")
-translator_de_to_en = pipeline("translation", model="Helsinki-NLP/opus-mt-de-en")
+
 lang_tool = language_tool_python.LanguageTool('de')
 nlp = spacy.load("de_core_news_sm")
 
