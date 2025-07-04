@@ -3,13 +3,14 @@ import sys
 import numpy
 import language_tool_python
 
-# Use the public API (no local Java needed)
+
 tool = language_tool_python.LanguageToolPublicAPI('en-US')
 
 text = "This are bad grammar."
 matches = tool.check(text)
-print(matches)
 
+for match in matches:
+    print(match)
 
 subprocess.check_call([sys.executable, "-m", "pip", "install", "sentencepiece"])
 
