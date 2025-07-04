@@ -1,3 +1,9 @@
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "sentencepiece"])
+
+
 import streamlit as st
 from transformers import pipeline
 import language_tool_python
