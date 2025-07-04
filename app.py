@@ -49,10 +49,17 @@ user_input = st.text_area("✍️ Enter a German or English sentence:")
 action = st.selectbox("What do you want to do?", ["Correct Grammar (DE)", "Translate (EN ↔ DE)", "Extract Vocabulary (DE)"])
 
 # --- Functions ---
+#def correct_grammar(text):
+#    matches = lang_tool.check(text)
+#    corrected = language_tool_python.utils.correct(text, matches)
+#    return corrected
+
+
+grammar_corrector = pipeline("text2text-generation", model="vennify/t5-base-grammar-correction")
+
 def correct_grammar(text):
-    matches = lang_tool.check(text)
-    corrected = language_tool_python.utils.correct(text, matches)
-    return corrected
+    corrected = grammar_corrector("gec: " + text, max_length=128, do_sample=False)
+    return corrected[0]['generated_text']
 
 def translate(text):
     # Detect language by checking for umlauts and ß (rough heuristic)
