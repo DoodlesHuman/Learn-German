@@ -1,7 +1,8 @@
+numpy==1.24.4
+sentencepiece==0.1.99
 streamlit
-transformers
+transformers==4.35.2
 language-tool-python
 spacy
 torch
-sentencepiece
 de-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.7.0/de_core_news_sm-3.7.0-py3-none-any.whl

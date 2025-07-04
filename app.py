@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import numpy
 
 subprocess.check_call([sys.executable, "-m", "pip", "install", "sentencepiece"])
 
