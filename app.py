@@ -31,7 +31,7 @@ translator_de_to_en = pipeline(
     model="Helsinki-NLP/opus-mt-de-en",
     tokenizer="Helsinki-NLP/opus-mt-de-en"
 )
-lang_tool = language_tool_python.LanguageTool('de')
+lang_tool = language_tool_python.LanguageToolPublicAPI('de')
 nlp = spacy.load("de_core_news_sm")
 
 # --- Streamlit UI ---
